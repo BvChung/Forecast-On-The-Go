@@ -4,9 +4,10 @@
 
 let longitude, latitude;
 
+
 const weather = async function (cityName, unitType = "metric") {
 	const res = await fetch(
-		`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${unitType}&appid=7b5dd67340ea04d52831fd0aa8f18630`
+		`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${unitType}&appid=`
 	);
 	console.log(res);
 
