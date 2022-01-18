@@ -35,7 +35,7 @@ const weather = async function (cityName, unitType = "metric") {
 	// );
 };
 
-weather("houston", `imperial`);
+// weather("houston", `imperial`);
 
 // Unix converter will get unix sunset time to determine what day it is sunday 0 -> forward
 const unixConverter = async function (unix) {
