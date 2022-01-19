@@ -13,8 +13,8 @@ const weather = async function (cityName, unitType = "metric") {
 	const data = await res.json();
 	console.log(data);
 
-	const { lat, lon } = data.coord;
-	return lat, lon;
+	const { coord } = data;
+	console.log(coord);
 	// const { temp: currentTemp, temp_max: maxTemp, temp_min: minTemp } = data.main;
 	// const { feels_like, humidity, pressure } = data.main;
 	// const { description } = data.weather[0];
@@ -35,7 +35,7 @@ const weather = async function (cityName, unitType = "metric") {
 	// );
 };
 
-// weather("houston", `imperial`);
+weather("houston", `imperial`);
 
 // Unix converter will get unix sunset time to determine what day it is sunday 0 -> forward
 const unixConverter = async function (unix) {
