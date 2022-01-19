@@ -4,9 +4,11 @@
 
 let longitude, latitude;
 
+
 const weather = async function (cityName, unitType = "metric") {
+	try{
 	const res = await fetch(
-		`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${unitType}&appid=7b5dd67340ea04d52831fd0aa8f18630`
+		`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${unitType}&appid=`
 	);
 	console.log(res);
 
@@ -33,7 +35,10 @@ const weather = async function (cityName, unitType = "metric") {
 	// 	description,
 	// 	windSpeed
 	// );
-};
+	} catch(err) {
+		console.error(err);
+	}
+	};
 
 weather("houston", `imperial`);
 
