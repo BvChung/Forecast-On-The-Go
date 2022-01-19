@@ -5,23 +5,29 @@ import locationSearch from "./view.js";
 //unitType = metric or imperial (c/f)
 
 const getLocation = async function () {
-	// 1) Get city from text input
-	const location = locationSearch.getCity();
-	console.log(location);
+	try {
+		// 1) Get city from text input
+		const location = locationSearch.getCity();
+		console.log(location);
 
-	if (!location) return;
+		if (!location) return;
 
-	// 2) Fetch API with location to get latitude and longitude of current city
-	await model.getCoordinates(location, "metric");
+		// 2) Fetch API with location to get latitude and longitude of current city
+		await model.getCoordinates(location, "metric");
 
-	// 3. Get lat and lon from stored data from API
-	const { latitude, longitude } = model.state.coord;
-	console.log(latitude, longitude);
+		// 3. Get lat and lon from stored data from API
+		const { latitude, longitude } = model.state.coord;
+		console.log(latitude, longitude);
 
-	// 4. Fetch API to get day/night temperatures and sunrise UNIX time of each day
-	await model.weeklyForecast(latitude, longitude, "metric");
-	console.log(model.state.dailyForecast);
-	console.log(model.state.currentDayUnixTime);
+		if (!latitude || !longitude) return;
+
+		// 4. Fetch API to get day/night temperatures and sunrise UNIX time of each day
+		await model.weeklyForecast(latitude, longitude, "metric");
+		console.log(model.state.dailyForecast);
+		console.log(model.state.currentDayUnixTime);
+	} catch (err) {
+		console.error(err);
+	}
 };
 
 const init = function () {
