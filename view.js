@@ -2,7 +2,7 @@ class WeatherDisplay {
 	#parentEl = document.querySelector(".info-input");
 
 	getCity() {
-		const location = this.#parentEl.querySelector(".search-city").value;
+		const location = this.#parentEl.querySelector(".input-text-search").value;
 		this.#clear();
 		return location;
 	}
@@ -16,7 +16,7 @@ class WeatherDisplay {
 	}
 
 	#clear() {
-		this.#parentEl.querySelector(".search-city").value = "";
+		this.#parentEl.querySelector(".input-text-search").value = "";
 	}
 
 	displayWeatherCity() {

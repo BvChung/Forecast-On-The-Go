@@ -137,8 +137,7 @@ body {
 }
 
 .input-btn:hover {
-	background-color: #f8f9fa;
-	color: #fff;
+	background-color: #f1f3f5;
 }
 
 .input-btn:active {
@@ -243,8 +242,15 @@ body {
 	background-color: #f8f9fa;
 }
 .week-title {
-	color: #1864ab;
+	color: #212529;
 	font-weight: 700;
+}
+
+.day--temp {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.8rem;
 }
 
 .week-temp-high {

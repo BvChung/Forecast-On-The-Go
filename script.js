@@ -25,6 +25,7 @@ const getLocation = async function () {
 		await model.weeklyForecast(latitude, longitude, "metric");
 		console.log(model.state.dailyForecast);
 		console.log(model.state.currentDayUnixTime);
+		console.log(model.state.currentDayDetails);
 	} catch (err) {
 		console.error(err);
 	}
@@ -34,6 +35,27 @@ const init = function () {
 	locationSearch.addHandlerSearch(getLocation);
 };
 init();
+
+const celcius = document.querySelector(".btn--cel");
+const farenheit = document.querySelector(".btn--faren");
+let currentUnits = true; //true = celcius and false = farenheit
+
+celcius.addEventListener("click", function () {
+	currentUnits = true;
+	if (currentUnits) {
+		console.log("celcius");
+	} else {
+		console.log("farenheit");
+	}
+});
+farenheit.addEventListener("click", function () {
+	currentUnits = false;
+	if (currentUnits) {
+		console.log("celcius");
+	} else {
+		console.log("farenheit");
+	}
+});
 
 // Unix converter will get unix sunset time to determine what day it is sunday 0 -> forward
 const unixConverter = async function (unix) {
@@ -51,12 +73,3 @@ const unixConverter = async function (unix) {
 
 const sat = new Date(`January 22, 2022`);
 console.log(sat.getDay());
-
-// const text = document.querySelector(".search-city");
-
-// document.querySelector(".info-input").addEventListener("submit", function (e) {
-// 	e.preventDefault();
-
-// 	const city = text.value;
-// 	console.log(city);
-// });

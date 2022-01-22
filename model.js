@@ -10,6 +10,9 @@ export const state = {
 
 	// Store day/night temperatures of each day
 	dailyForecast: [],
+
+	// Stores information about the current day (humidity/rain/windspeed/feelslike)
+	currentDayDetails: [],
 };
 
 export const getCoordinates = async function (cityName, unitType = "metric") {
@@ -22,7 +25,7 @@ export const getCoordinates = async function (cityName, unitType = "metric") {
 		const data = await res.json();
 		console.log(data);
 
-		const { coord } = data;
+		let { coord } = data;
 		state.coord = {
 			latitude: coord.lat,
 			longitude: coord.lon,
@@ -40,10 +43,18 @@ export const weeklyForecast = async function (lat, lon, unitType = "metric") {
 		const data = await res.json();
 		console.log(data);
 
+		let { current } = data;
+		state.currentDayDetails = {
+			feels_like: current.feels_like,
+			humidity: current.humidity,
+			rain: current.rain,
+			wind_speed: current.wind_speed,
+		};
+
 		state.dailyForecast = data.daily.map((day) => {
 			return {
-				dayTemperature: day.temp.day,
-				nightTemperature: day.temp.night,
+				dayTemperature: Math.round(day.temp.day),
+				nightTemperature: Math.round(day.temp.night),
 			};
 		});
 
