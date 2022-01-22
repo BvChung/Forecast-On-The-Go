@@ -35,10 +35,10 @@ body {
 
 .weather-content {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 }
 
-.weather--search {
+.weather-search-container {
 	display: flex;
 	flex-direction: column;
 	gap: 3.6rem;
@@ -47,12 +47,13 @@ body {
 	/* align-items: center; */
 }
 
+.header-primary {
+	margin-bottom: 1.8rem;
+	font-size: 4rem;
+}
+/* Input ------------------------------------------ */
 .info-city {
 	font-size: 2rem;
-}
-
-.city-header {
-	margin-bottom: 1.8rem;
 }
 
 .info-unit {
@@ -68,6 +69,11 @@ body {
 	border-radius: 9px;
 	background-color: #fff;
 	transition: all 0.8s;
+}
+
+.btn--active {
+	background-color: #212529;
+	color: #fff;
 }
 
 .btn:hover {
@@ -115,18 +121,39 @@ body {
 .input-btn:active {
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
-
-.weather-info {
-	font-size: 1.6rem;
-	font-weight: 500;
-	align-items: center;
+/* Current Day info ------------------------------------ */
+.weather-info-container {
+	padding: 2.4rem;
 }
+
+.info-title {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2.4rem;
+	margin-bottom: 2.4rem;
+}
+
+.info-temp {
+	font-size: 4.8rem;
+	font-weight: 700;
+}
+
+.info--details {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2.4rem;
+	font-size: 2rem;
+}
+
+/* 7 day forecast ------------------------------------- */
 
 .weather-info--current {
 	align-items: center;
 }
 
-.weather-forecast--container {
+.weather-forecast-container {
 	display: flex;
 	font-weight: 600;
 

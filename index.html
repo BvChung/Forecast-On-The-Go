@@ -20,9 +20,9 @@
 	<body>
 		<main class="app container">
 			<div class="weather-content">
-				<div class="weather--search">
+				<div class="weather-search-container">
 					<div class="info-city">
-						<h1 class="city-header">Austin</h1>
+						<h1 class="city-header header-primary">Austin</h1>
 						<p class="city-date">Tuesday, 18th Jan '22</p>
 						<p class="city-time">4:12 pm</p>
 					</div>
@@ -59,58 +59,94 @@
 					</form>
 				</div>
 
-				<div class="weather--info">
+				<div class="weather-info-container">
 					<div class="weather-info--details">
-						<div class="info-title">Scattered Clouds</div>
+						<div class="info-title">
+							<h1 class="info-header header-primary">Scattered Clouds</h1>
 
-						<div class="info-temp">
-							<p>25 C</p>
+							<div class="info-temp">
+								<p>25 °C</p>
+							</div>
+							<div class="info-logo">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									class="icon icon-tabler icon-tabler-sun"
+									width="55"
+									height="55"
+									viewBox="0 0 24 24"
+									stroke-width="1.5"
+									stroke="#2c3e50"
+									fill="none"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<circle cx="12" cy="12" r="4" />
+									<path
+										d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"
+									/>
+								</svg>
+							</div>
 						</div>
 
-						<div class="info-logo">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								class="icon icon-tabler icon-tabler-sun"
-								width="44"
-								height="44"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="#2c3e50"
-								fill="none"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-								<circle cx="12" cy="12" r="4" />
-								<path
-									d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"
-								/>
-							</svg>
-						</div>
-					</div>
-
-					<div class="weather-info--current">
-						<div class="current-feels-like">
-							<p class="feels--title">Feels Like</p>
-							<p class="feels--temp">25 &#8451;</p>
-						</div>
-						<div class="current-humidity">
-							<p class="feels--title">Humidity</p>
-							<p class="feels--temp">61 &#37;</p>
-						</div>
-						<div class="current-rain">
-							<p class="feels--title">Chance of Rain</p>
-							<p class="feels--temp">0 &#37;</p>
-						</div>
-						<div class="current-wind">
-							<p class="feels--title">Wind Speed</p>
-							<p class="feels--temp">25 km/h</p>
+						<div class="info--details">
+							<div class="current-feels-like">
+								<p class="feels--title">Feels Like</p>
+								<div class="feels--attribute">
+									<ion-icon
+										name="thermometer-outline"
+										class="info-icon"
+									></ion-icon
+									>
+									<span>
+									25 °C</span>
+								</div>
+							</div>
+							<div class="current-humidity">
+								<p class="feels--title">Humidity</span>
+									<div class="feels--attribute">
+										<ion-icon
+											name="water-outline"
+											class="info-icon"
+										></ion-icon
+										>
+										<span>
+											61 %</span>
+									</div>
+								
+							</div>
+							<div class="current-rain">
+								<p class="feels--title">Chance of Rain</p>
+								<div class="feels--attribute">
+									<ion-icon
+										name="rainy-outline"
+										class="info-icon"
+									></ion-icon
+									>
+									<span>
+										0 %</span>
+								</div>
+								
+							</div>
+							<div class="current-wind">
+								<p class="feels--title">Wind Speed</p>
+								<div class="feels--attribute">
+									<ion-icon
+										name="shuffle-outline"
+										class="info-icon"
+									></ion-icon
+									>
+									<span>
+										25 km/h</span>
+								</div>
+								
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="weather-forecast--container">
+			<div class="weather-forecast-container">
 				<div class="day--container">
 					<div class="day--title">
 						<p class="week-title">Monday</p>
