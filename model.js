@@ -13,6 +13,8 @@ export const state = {
 
 	// Stores information about the current day (humidity/rain/windspeed/feelslike)
 	currentDayDetails: [],
+
+	rain: [],
 };
 
 export const getCoordinates = async function (cityName, unitType = "metric") {
