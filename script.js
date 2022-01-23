@@ -42,6 +42,8 @@ let currentUnits = true; //true = celcius and false = farenheit
 
 celcius.addEventListener("click", function () {
 	currentUnits = true;
+	celcius.classList.toggle("btn--active");
+	farenheit.classList.remove("btn--active");
 	if (currentUnits) {
 		console.log("celcius");
 	} else {
@@ -50,6 +52,8 @@ celcius.addEventListener("click", function () {
 });
 farenheit.addEventListener("click", function () {
 	currentUnits = false;
+	farenheit.classList.toggle("btn--active");
+	celcius.classList.remove("btn--active");
 	if (currentUnits) {
 		console.log("celcius");
 	} else {
