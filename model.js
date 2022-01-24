@@ -49,7 +49,6 @@ export const weeklyForecast = async function (lat, lon, unitType = "metric") {
 		state.currentDayDetails = {
 			feels_like: current.feels_like,
 			humidity: current.humidity,
-			rain: current.rain,
 			wind_speed: current.wind_speed,
 		};
 
@@ -57,14 +56,18 @@ export const weeklyForecast = async function (lat, lon, unitType = "metric") {
 			return {
 				dayTemperature: Math.round(day.temp.day),
 				nightTemperature: Math.round(day.temp.night),
-			};
-		});
-
-		state.currentDayUnixTime = data.daily.map((day) => {
-			return {
+				chanceOfRain: day.pop.toFixed(2), //in two decimal places
+				typeOfWeather: day.weather[0].main,
+				typeOfWeatherIcon: day.weather[0].icon,
 				sunriseUnixTime: day.sunrise,
 			};
 		});
+
+		// state.currentDayUnixTime = data.daily.map((day) => {
+		// 	return {
+		// 		sunriseUnixTime: day.sunrise,
+		// 	};
+		// });
 	} catch (err) {
 		console.error(err);
 	}

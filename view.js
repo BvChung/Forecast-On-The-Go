@@ -1,22 +1,25 @@
-class WeatherDisplay {
-	#parentEl = document.querySelector(".info-input");
+class WeatherAppDisplay {
+	_parentEl = document.querySelector(".info-input");
+	_date = document.querySelector(".city-date");
+	city;
 
-	getCity() {
-		const location = this.#parentEl.querySelector(".input-text-search").value;
-		this.#clear();
-		return location;
+	getLocation() {
+		const city = this._parentEl.querySelector(".input-text-search").value;
+		this._clear();
+		this.city = city;
+		return city;
 	}
 
 	addHandlerSearch(handler) {
 		// Add to parent element so that event occurs when enter is pressed or button is clicked
-		this.#parentEl.addEventListener("submit", function (e) {
+		this._parentEl.addEventListener("submit", function (e) {
 			e.preventDefault();
 			handler();
 		});
 	}
 
-	#clear() {
-		this.#parentEl.querySelector(".input-text-search").value = "";
+	_clear() {
+		this._parentEl.querySelector(".input-text-search").value = "";
 	}
 
 	displayWeatherCity() {
@@ -36,6 +39,21 @@ class WeatherDisplay {
 					</div>
         `;
 	}
+
+	displayDate() {
+		const currentDate = new Date();
+		const dateOptions = {
+			day: "numeric",
+			month: "long",
+			year: "numeric",
+			weekday: "long",
+		};
+		const locale = navigator.language;
+		this._date.textContent = new Intl.DateTimeFormat(
+			locale,
+			dateOptions
+		).format(currentDate);
+	}
 }
 
-export default new WeatherDisplay();
+export default new WeatherAppDisplay();
