@@ -81,6 +81,10 @@ body {
 	color: #343a40;
 }
 
+.city-date {
+	margin-bottom: 1.2rem;
+}
+
 .info-unit {
 	display: flex;
 	gap: 1.2rem;

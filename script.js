@@ -77,3 +77,37 @@ const unixConverter = async function (unix) {
 
 const sat = new Date(`January 22, 2022`);
 console.log(sat.getDay());
+
+// Adding date
+const date = document.querySelector(".city-date");
+const time = document.querySelector(".city-time");
+
+const currentDate = new Date();
+const getWeekday = function (date) {
+	const weekday = date.getUTCDay();
+	console.log(weekday);
+};
+getWeekday(currentDate);
+
+const dateOptions = {
+	day: "numeric",
+	month: "long",
+	year: "numeric",
+	weekday: "long",
+};
+const timeOptions = {
+	hour: "numeric",
+	minute: "numeric",
+};
+
+const locale = navigator.language;
+console.log(locale);
+console.log(dateOptions.weekday);
+
+// date.textContent = currentDate;
+date.textContent = new Intl.DateTimeFormat(locale, dateOptions).format(
+	currentDate
+);
+time.textContent = new Intl.DateTimeFormat(locale, timeOptions).format(
+	currentDate
+);
