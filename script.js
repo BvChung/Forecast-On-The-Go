@@ -39,6 +39,8 @@ init();
 
 const displayChangeOfUnits = async function (units) {
 	try {
+		if (!applicationDisplay.city) return;
+
 		await model.getCoordinates(applicationDisplay.city, units);
 
 		// 3. Get lat and lon from stored data from API

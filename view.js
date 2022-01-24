@@ -1,10 +1,14 @@
 class WeatherAppDisplay {
-	_parentEl = document.querySelector(".info-input");
+	_inputParentEl = document.querySelector(".info-input");
 	_date = document.querySelector(".city-date");
+	_celcius = document.querySelector(".btn--cel");
+	_farenheit = document.querySelector(".btn--faren");
+	_currentUnits = true; //true = celcius and false = farenheit
+
 	city;
 
 	getLocation() {
-		const city = this._parentEl.querySelector(".input-text-search").value;
+		const city = this._inputParentEl.querySelector(".input-text-search").value;
 		this._clear();
 		this.city = city;
 		return city;
@@ -12,14 +16,14 @@ class WeatherAppDisplay {
 
 	addHandlerSearch(handler) {
 		// Add to parent element so that event occurs when enter is pressed or button is clicked
-		this._parentEl.addEventListener("submit", function (e) {
+		this._inputParentEl.addEventListener("submit", function (e) {
 			e.preventDefault();
 			handler();
 		});
 	}
 
 	_clear() {
-		this._parentEl.querySelector(".input-text-search").value = "";
+		this._inputParentEl.querySelector(".input-text-search").value = "";
 	}
 
 	displayWeatherCity() {
