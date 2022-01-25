@@ -52,7 +52,6 @@ body {
 }
 
 .header-primary {
-	margin-bottom: 1.8rem;
 	font-size: 4rem;
 	font-weight: 700;
 }
@@ -73,6 +72,10 @@ body {
 /* Input ------------------------------------------ */
 .info-city {
 	font-size: 2rem;
+}
+
+.city-header {
+	margin-bottom: 1.8rem;
 }
 
 .city-date,
@@ -97,7 +100,7 @@ body {
 	border: 2px solid #212529;
 	border-radius: 9px;
 	background-color: #fff;
-	transition: all 0.8s;
+	transition: all 0.5s;
 }
 
 .btn--active {
@@ -151,7 +154,7 @@ body {
 }
 /* Current Day info ------------------------------------ */
 .weather-info-container {
-	padding: 3.2rem 0;
+	padding: 2.4rem 0;
 	/* border: 5px solid #212529; */
 	border-radius: 9px;
 	box-shadow: 0 3px 5px rgba(0, 0, 0, 5);
