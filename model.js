@@ -47,7 +47,8 @@ export const weeklyForecast = async function (lat, lon, unitType = "metric") {
 
 		let { current } = data;
 		state.currentDayDetails = {
-			feels_like: current.feels_like,
+			currentTemp: Math.round(current.temp),
+			feels_like: Math.round(current.feels_like),
 			humidity: current.humidity,
 			wind_speed: current.wind_speed,
 		};

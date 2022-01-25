@@ -1,6 +1,9 @@
+"use strict";
+
 // https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
 import * as model from "./model.js";
-import applicationDisplay from "./view.js";
+import applicationDisplay from "./locationView.js";
+import weatherApp from "./view.js";
 
 //unitType = metric or imperial (c/f)
 
@@ -24,8 +27,15 @@ const getLocation = async function (units = "metric") {
 
 		// 4. Fetch API to get day/night temperatures and sunrise UNIX time of each day
 		await model.weeklyForecast(latitude, longitude, units);
+
 		console.log(model.state.dailyForecast);
 		console.log(model.state.currentDayDetails);
+
+		// 5. Display current weather details
+		applicationDisplay.render(
+			model.state.dailyForecast,
+			model.state.currentDayDetails
+		);
 	} catch (err) {
 		console.error(err);
 	}
@@ -64,13 +74,13 @@ let currentUnits = true; //true = celcius and false = farenheit
 
 celcius.addEventListener("click", function () {
 	currentUnits = true;
-	celcius.classList.toggle("btn--active");
+	celcius.classList.add("btn--active");
 	farenheit.classList.remove("btn--active");
 	displayChangeOfUnits("metric");
 });
 farenheit.addEventListener("click", function () {
 	currentUnits = false;
-	farenheit.classList.toggle("btn--active");
+	farenheit.classList.add("btn--active");
 	celcius.classList.remove("btn--active");
 	displayChangeOfUnits("imperial");
 });
