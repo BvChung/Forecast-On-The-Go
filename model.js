@@ -9,10 +9,10 @@ export const state = {
 	currentDayUnixTime: [],
 
 	// Store day/night temperatures of each day
-	dailyForecast: [],
+	weeklyForecast: [],
 
 	// Stores information about the current day (humidity/rain/windspeed/feelslike)
-	currentDayDetails: [],
+	dailyForecast: [],
 
 	rain: [],
 };
@@ -46,20 +46,20 @@ export const weeklyForecast = async function (lat, lon, unitType = "metric") {
 		console.log(data);
 
 		let { current } = data;
-		state.currentDayDetails = {
+		state.dailyForecast = {
 			currentTemp: Math.round(current.temp),
 			feels_like: Math.round(current.feels_like),
 			humidity: current.humidity,
 			wind_speed: current.wind_speed,
 		};
 
-		state.dailyForecast = data.daily.map((day) => {
+		state.weeklyForecast = data.daily.map((day) => {
 			return {
 				dayTemperature: Math.round(day.temp.day),
 				nightTemperature: Math.round(day.temp.night),
 				chanceOfRain: day.pop.toFixed(2), //in two decimal places
-				typeOfWeather: day.weather[0].main,
-				typeOfWeatherIcon: day.weather[0].icon,
+				weather: day.weather[0].main,
+				weatherIcon: day.weather[0].icon,
 				sunriseUnixTime: day.sunrise,
 			};
 		});

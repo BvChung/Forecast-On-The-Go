@@ -1,13 +1,40 @@
 "use strict";
 
-// https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
 import * as model from "./model.js";
 import applicationDisplay from "./locationView.js";
-import weatherApp from "./view.js";
 
 //unitType = metric or imperial (c/f)
+const celcius = document.querySelector(".btn--cel");
+const farenheit = document.querySelector(".btn--faren");
+let currentUnits; //true = celcius and false = farenheit
 
-const getLocation = async function (units = "metric") {
+function init() {
+	applicationDisplay.displayDate();
+	getLocation();
+	applicationDisplay.addHandlerSearch(getLocation);
+	changeUnits();
+}
+init();
+
+function changeUnits() {
+	celcius.addEventListener("click", function () {
+		currentUnits = "metric";
+		celcius.classList.add("btn--active");
+		farenheit.classList.remove("btn--active");
+		displayChangeOfUnits("metric");
+		console.log(currentUnits);
+	});
+
+	farenheit.addEventListener("click", function () {
+		currentUnits = "imperial";
+		farenheit.classList.add("btn--active");
+		celcius.classList.remove("btn--active");
+		displayChangeOfUnits("imperial");
+		console.log(currentUnits);
+	});
+}
+
+async function getLocation(units = "metric") {
 	try {
 		// 1) Get city from text input
 		const location = applicationDisplay.getLocation();
@@ -28,26 +55,22 @@ const getLocation = async function (units = "metric") {
 		// 4. Fetch API to get day/night temperatures and sunrise UNIX time of each day
 		await model.weeklyForecast(latitude, longitude, units);
 
+		console.log(model.state.weeklyForecast);
 		console.log(model.state.dailyForecast);
-		console.log(model.state.currentDayDetails);
+		console.log(model.state.weeklyForecast[0].weatherIcon);
 
-		// 5. Display current weather details
+		// 5. Display current weather details and changes weather icon
 		applicationDisplay.render(
+			model.state.weeklyForecast,
 			model.state.dailyForecast,
-			model.state.currentDayDetails
+			units
 		);
 	} catch (err) {
 		console.error(err);
 	}
-};
+}
 
-const init = function () {
-	applicationDisplay.displayDate();
-	applicationDisplay.addHandlerSearch(getLocation);
-};
-init();
-
-const displayChangeOfUnits = async function (units) {
+async function displayChangeOfUnits(units) {
 	try {
 		if (!applicationDisplay.city) return;
 
@@ -61,29 +84,19 @@ const displayChangeOfUnits = async function (units) {
 
 		// 4. Fetch API to get day/night temperatures and sunrise UNIX time of each day
 		await model.weeklyForecast(latitude, longitude, units);
+		console.log(model.state.weeklyForecast);
 		console.log(model.state.dailyForecast);
-		console.log(model.state.currentDayDetails);
+
+		// 5. Display current weather details and changes weather icon
+		applicationDisplay.render(
+			model.state.weeklyForecast,
+			model.state.dailyForecast,
+			units
+		);
 	} catch (err) {
 		console.error(err);
 	}
-};
-
-const celcius = document.querySelector(".btn--cel");
-const farenheit = document.querySelector(".btn--faren");
-let currentUnits = true; //true = celcius and false = farenheit
-
-celcius.addEventListener("click", function () {
-	currentUnits = true;
-	celcius.classList.add("btn--active");
-	farenheit.classList.remove("btn--active");
-	displayChangeOfUnits("metric");
-});
-farenheit.addEventListener("click", function () {
-	currentUnits = false;
-	farenheit.classList.add("btn--active");
-	celcius.classList.remove("btn--active");
-	displayChangeOfUnits("imperial");
-});
+}
 
 // ----------------------
 
