@@ -1,4 +1,5 @@
 import { API_KEY } from "./config.js";
+import { forecastIcon, weatherInfoIcon } from "./config.js";
 
 // Stores Data from API
 export const state = {
@@ -14,7 +15,7 @@ export const state = {
 	// Stores information about the current day (humidity/rain/windspeed/feelslike)
 	dailyForecast: [],
 
-	rain: [],
+	weatherInfo: [],
 };
 
 export const getCoordinates = async function (cityName, unitType = "metric") {
@@ -22,10 +23,10 @@ export const getCoordinates = async function (cityName, unitType = "metric") {
 		const res = await fetch(
 			`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${unitType}&appid=${API_KEY}`
 		);
-		console.log(res);
+		// console.log(res);
 
 		const data = await res.json();
-		console.log(data);
+		// console.log(data);
 
 		let { coord } = data;
 		state.coord = {
@@ -53,7 +54,7 @@ export const weeklyForecast = async function (lat, lon, unitType = "metric") {
 			wind_speed: current.wind_speed,
 		};
 
-		state.weeklyForecast = data.daily.map((day) => {
+		state.weatherInfo = data.daily.map((day) => {
 			return {
 				dayTemperature: Math.round(day.temp.day),
 				nightTemperature: Math.round(day.temp.night),
@@ -64,11 +65,32 @@ export const weeklyForecast = async function (lat, lon, unitType = "metric") {
 			};
 		});
 
-		// state.currentDayUnixTime = data.daily.map((day) => {
-		// 	return {
-		// 		sunriseUnixTime: day.sunrise,
-		// 	};
-		// });
+		// API gives 8 days want only 7
+		state.weatherInfo.pop();
+
+		// Convert sunriseUnixTime to day of week
+		state.weatherInfo.forEach((el) => {
+			const dayConverted = new Date(el.sunriseUnixTime * 1000);
+			const dateOptions = {
+				weekday: "long",
+			};
+			const locale = navigator.language;
+			return (el.weekday = new Intl.DateTimeFormat(locale, dateOptions).format(
+				dayConverted
+			));
+		});
+
+		state.weatherInfo.forEach((el, i) => {
+			if (i === 0) {
+				return (el.infoIcon = weatherInfoIcon(el.weatherIcon));
+			}
+		});
+
+		// Convert icon id from API to svg html respectively
+		state.weatherInfo.forEach((el) => {
+			return (el.forecastIcon = forecastIcon(el.weatherIcon));
+		});
+		console.log(state.weatherInfo);
 	} catch (err) {
 		console.error(err);
 	}

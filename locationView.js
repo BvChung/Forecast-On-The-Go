@@ -1,6 +1,6 @@
-import WeatherApp from "./view.js";
+import WeatherView from "./view.js";
 
-class WeatherSearch extends WeatherApp {
+class WeatherSearch extends WeatherView {
 	_parentElement = document.querySelector(".weather-info-container");
 	_inputParentEl = document.querySelector(".info-input");
 	_cityName = document.querySelector(".city-header");
@@ -9,7 +9,9 @@ class WeatherSearch extends WeatherApp {
 
 	getLocation() {
 		let city = this._inputParentEl.querySelector(".input-text-search").value;
+
 		if (!city) city = "Houston";
+
 		this.city = city;
 		this._displayLocation(city);
 		this._clear();
@@ -20,28 +22,20 @@ class WeatherSearch extends WeatherApp {
 		this._cityName.textContent = city;
 	}
 
-	_clear() {
-		this._inputParentEl.querySelector(".input-text-search").value = "";
-	}
-
-	_clearHTML() {
-		this._parentElement.innerHTML = "";
-	}
-
-	generateMarkup(weeklyForecast, dailyForecast, units) {
-		if (units === "metric") {
+	generateMarkup() {
+		if (this._units === "metric") {
 			return `
 			<div class="weather-info--details">
 							<div class="info-title">
 								<div class="info-header">
-								<h1 class="header-primary">${weeklyForecast[0].weather}</h1>
+								<h1 class="header-primary">${this._dataWeekly[0].weather}</h1>
 								</div>
 	
 								<div class="info-temp">
-									<p>${dailyForecast.currentTemp} °C</p>
+									<p>${this._dataCurrent.currentTemp} °C</p>
 								</div>
 								<div class="info-logo">
-									<ion-icon class="weather-icon" name="sunny-outline"></ion-icon>
+									${this._dataWeekly[0].infoIcon}
 								</div>
 	
 								<div class="info-details">
@@ -54,7 +48,7 @@ class WeatherSearch extends WeatherApp {
 											></ion-icon
 											>
 											<span>
-											${dailyForecast.feels_like} °C</span>
+											${this._dataCurrent.feels_like} °C</span>
 										</div>
 									</div>
 									<div class="info-current">
@@ -66,7 +60,7 @@ class WeatherSearch extends WeatherApp {
 												></ion-icon
 												>
 												<span>
-												${dailyForecast.humidity} %</span>
+												${this._dataCurrent.humidity} %</span>
 											</div>
 										
 									</div>
@@ -79,7 +73,7 @@ class WeatherSearch extends WeatherApp {
 											></ion-icon
 											>
 											<span>
-											${(weeklyForecast[0].chanceOfRain * 100).toFixed(0)} %</span>
+											${(this._dataWeekly[0].chanceOfRain * 100).toFixed(0)} %</span>
 										</div>
 										
 									</div>
@@ -92,7 +86,7 @@ class WeatherSearch extends WeatherApp {
 											></ion-icon
 											>
 											<span>
-											${dailyForecast.wind_speed} km/h</span>
+											${this._dataCurrent.wind_speed} m/s</span>
 										</div>
 										
 									</div>
@@ -104,19 +98,19 @@ class WeatherSearch extends WeatherApp {
 			`;
 		}
 
-		if (units === "imperial") {
+		if (this._units === "imperial") {
 			return `
 			<div class="weather-info--details">
 							<div class="info-title">
 								<div class="info-header">
-								<h1 class="header-primary">${weeklyForecast[0].weather}</h1>
+								<h1 class="header-primary">${this._dataWeekly[0].weather}</h1>
 								</div>
 	
 								<div class="info-temp">
-									<p>${dailyForecast.currentTemp} °F</p>
+									<p>${this._dataCurrent.currentTemp} °F</p>
 								</div>
 								<div class="info-logo">
-									<ion-icon class="weather-icon" name="sunny-outline"></ion-icon>
+									${this._dataWeekly[0].infoIcon}
 								</div>
 	
 								<div class="info-details">
@@ -129,7 +123,7 @@ class WeatherSearch extends WeatherApp {
 											></ion-icon
 											>
 											<span>
-											${dailyForecast.feels_like} °F</span>
+											${this._dataCurrent.feels_like} °F</span>
 										</div>
 									</div>
 									<div class="info-current">
@@ -141,7 +135,7 @@ class WeatherSearch extends WeatherApp {
 												></ion-icon
 												>
 												<span>
-												${dailyForecast.humidity} %</span>
+												${this._dataCurrent.humidity} %</span>
 											</div>
 										
 									</div>
@@ -154,7 +148,7 @@ class WeatherSearch extends WeatherApp {
 											></ion-icon
 											>
 											<span>
-											${(weeklyForecast[0].chanceOfRain * 100).toFixed(0)} %</span>
+											${(this._dataWeekly[0].chanceOfRain * 100).toFixed(0)} %</span>
 										</div>
 										
 									</div>
@@ -167,7 +161,7 @@ class WeatherSearch extends WeatherApp {
 											></ion-icon
 											>
 											<span>
-											${dailyForecast.wind_speed} mph</span>
+											${this._dataCurrent.wind_speed} m/h</span>
 										</div>
 										
 									</div>
