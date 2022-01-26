@@ -15,11 +15,9 @@ class WeatherSearch extends WeatherView {
 			.value.toLowerCase();
 
 		let output = input[0].toUpperCase() + input.slice(1);
-
 		let city = output;
-		console.log(city);
 
-		if (!city) city = "Houston";
+		if (!city) city = "Austin";
 
 		this.city = city;
 		this._clear();

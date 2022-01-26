@@ -38,7 +38,7 @@ export const getCoordinates = async function (cityName, unitType = "metric") {
 		};
 	} catch (err) {
 		applicationDisplay.renderError();
-		console.error(err);
+		// console.error(err);
 	}
 };
 
@@ -47,7 +47,11 @@ export const weeklyForecast = async function (lat, lon, unitType = "metric") {
 		const res = await fetch(
 			`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${unitType}&exclude={part}&appid=${API_KEY}`
 		);
+		if (!res) return;
+
 		const data = await res.json();
+
+		if (!data) return;
 		console.log(data);
 
 		state.dailyForecast = {

@@ -16,6 +16,7 @@ export default class WeatherView {
 		const markup = this.generateMarkup();
 		this._clearHTML();
 		this._parentElement.insertAdjacentHTML("afterbegin", markup);
+		document.querySelector(".error").classList.add("hidden");
 	}
 
 	addHandlerSearch(handler) {
@@ -36,17 +37,5 @@ export default class WeatherView {
 
 	renderError() {
 		document.querySelector(".error").classList.remove("hidden");
-		// const markup = `
-		// <div class="error">
-		// 				<div class="error-icon">
-		// 					<ion-icon name="warning-outline"></ion-icon>
-		// 				</div>
-		// 				<div class="error-text">
-		// 					<p >${message}</p>
-		// 				</div>
-		// 				<button class="exit-btn"><ion-icon class="error-exit "name="close-outline"></ion-icon></button>
-		// 			</div>
-		// `;
-		// this._errParentEl.insertAdjacentHTML("beforeend", markup);
 	}
 }

@@ -1,8 +1,8 @@
 "use strict";
 
-import * as model from "./model.js";
-import applicationDisplay from "./locationView.js";
-import forecastDisplay from "./forecastView.js";
+import * as model from "./exportJS/model.js";
+import applicationDisplay from "./exportJS/locationView.js";
+import forecastDisplay from "./exportJS/forecastView.js";
 
 //unitType = metric or imperial (c/f)
 const celcius = document.querySelector(".btn--cel");
@@ -100,12 +100,3 @@ async function displayChangeOfUnits(units) {
 		console.error(err);
 	}
 }
-
-document.querySelector(".input-btn").addEventListener("click", function () {
-	let input = document.querySelector(".input-text-search").value;
-	let lower = input.toLowerCase();
-	let output = lower[0].toUpperCase() + lower.slice(1);
-	console.log(output);
-});
-
-// document.querySelector(".error").classList.remove("hidden");
