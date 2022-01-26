@@ -9,20 +9,19 @@ export default class WeatherView {
 		this._dataCurrent = dataCurrent;
 		this._dataWeekly = dataWeekly;
 		this._units = units;
-		console.log(this._dataCurrent, this._dataWeekly, this._units);
+		// console.log(this._dataCurrent, this._dataWeekly, this._units);
 
-		// this._displayLocation();
 		this.displayTime();
 		const markup = this.generateMarkup();
 		this._clearHTML();
 		this._parentElement.insertAdjacentHTML("afterbegin", markup);
-		document.querySelector(".error").classList.add("hidden");
 	}
 
 	addHandlerSearch(handler) {
 		// Add to parent element so that event occurs when enter is pressed or button is clicked
 		this._inputParentEl.addEventListener("submit", function (e) {
 			e.preventDefault();
+			document.querySelector(".error").classList.add("hidden");
 			handler();
 		});
 	}

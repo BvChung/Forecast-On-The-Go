@@ -7,15 +7,10 @@ export const state = {
 	// Store the coordinates of the city
 	coord: {},
 
-	// Store the sunrise unix time to determine current day through conversion
-	currentDayUnixTime: [],
-
-	// Store day/night temperatures of each day
-	weeklyForecast: [],
-
 	// Stores information about the current day (humidity/rain/windspeed/feelslike)
 	dailyForecast: [],
 
+	// Stores forecast information
 	weatherInfo: [],
 };
 
@@ -31,14 +26,17 @@ export const getCoordinates = async function (cityName, unitType = "metric") {
 
 		if (!data) return;
 
-		let { coord } = data;
-		state.coord = {
-			latitude: coord.lat,
-			longitude: coord.lon,
-		};
+		let { lat, lon } = data.coord;
+
+		return { lat, lon };
+		// let { coord } = data;
+		// state.coord = {
+		// 	latitude: coord.lat,
+		// 	longitude: coord.lon,
+		// };
 	} catch (err) {
 		applicationDisplay.renderError();
-		// console.error(err);
+		console.error(err);
 	}
 };
 
@@ -52,7 +50,7 @@ export const weeklyForecast = async function (lat, lon, unitType = "metric") {
 		const data = await res.json();
 
 		if (!data) return;
-		console.log(data);
+		// console.log(data);
 
 		state.dailyForecast = {
 			timezone: data.timezone,
@@ -62,15 +60,7 @@ export const weeklyForecast = async function (lat, lon, unitType = "metric") {
 			humidity: data.current.humidity,
 			wind_speed: data.current.wind_speed,
 		};
-		console.log(state.dailyForecast);
-
-		const timeNow = new Date(state.dailyForecast.currentTime * 1000);
-		console.log(timeNow);
-		const convertedTime = timeNow.toLocaleString("en-US", {
-			hour: "numeric",
-			minute: "numeric",
-			timeZone: state.dailyForecast.timezone,
-		});
+		// console.log(state.dailyForecast);
 
 		state.weatherInfo = data.daily.map((day) => {
 			return {
@@ -110,8 +100,8 @@ export const weeklyForecast = async function (lat, lon, unitType = "metric") {
 		state.weatherInfo.forEach((el) => {
 			return (el.forecastIcon = forecastIcon(el.weatherIcon));
 		});
-		console.log(state.dailyForecast);
-		console.log(state.weatherInfo);
+		// console.log(state.dailyForecast);
+		// console.log(state.weatherInfo);
 	} catch (err) {
 		console.error(err);
 	}
