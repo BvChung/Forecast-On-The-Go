@@ -7,6 +7,7 @@ const celcius = document.querySelector(".btn--cel");
 const farenheit = document.querySelector(".btn--faren");
 const error = document.querySelector(".error");
 const exitError = document.querySelector(".error-exit");
+let units = "metric";
 
 function init() {
 	applicationDisplay.displayDate();
@@ -18,12 +19,14 @@ init();
 
 function changeUnits() {
 	celcius.addEventListener("click", function () {
+		units = "metric";
 		celcius.classList.add("btn--active");
 		farenheit.classList.remove("btn--active");
 		displayChangeOfUnits("metric");
 	});
 
 	farenheit.addEventListener("click", function () {
+		units = "imperial";
 		farenheit.classList.add("btn--active");
 		celcius.classList.remove("btn--active");
 		displayChangeOfUnits("imperial");
@@ -34,7 +37,7 @@ function changeUnits() {
 	});
 }
 
-async function getLocation(units = "metric") {
+async function getLocation() {
 	try {
 		// 1) Get city from text input
 		const location = applicationDisplay.getLocation();
@@ -68,7 +71,7 @@ async function getLocation(units = "metric") {
 	}
 }
 
-async function displayChangeOfUnits(units) {
+async function displayChangeOfUnits() {
 	try {
 		if (!applicationDisplay.city) return;
 

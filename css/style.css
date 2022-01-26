@@ -119,6 +119,7 @@ body {
 .btn:hover {
 	background-color: #212529;
 	color: #fff;
+	cursor: pointer;
 }
 
 .info-input {
@@ -155,6 +156,7 @@ body {
 
 .input-btn:hover {
 	background-color: #f1f3f5;
+	cursor: pointer;
 }
 
 .input-btn:active {
