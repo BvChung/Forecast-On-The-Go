@@ -3,22 +3,19 @@ export default class WeatherView {
 	_dataWeekly;
 	_units;
 	_currentIconContainer = document.querySelector(".info-logo");
+	_errEl = document.querySelector(".error");
 
 	render(dataCurrent, dataWeekly, units) {
-		//   Want to check if there is no data or if the data is an empty array
-		// if (!data || (Array.isArray(data) && data.length === 0))
-		//   return this.renderError();
-
-		// this._data is equal to the recipe data from the api
 		this._dataCurrent = dataCurrent;
 		this._dataWeekly = dataWeekly;
 		this._units = units;
 		console.log(this._dataCurrent, this._dataWeekly, this._units);
 
+		// this._displayLocation();
+		this.displayTime();
 		const markup = this.generateMarkup();
 		this._clearHTML();
 		this._parentElement.insertAdjacentHTML("afterbegin", markup);
-		// this._currentIconContainer.innerHTML = this._dataWeekly[0].icon;
 	}
 
 	addHandlerSearch(handler) {
@@ -35,5 +32,21 @@ export default class WeatherView {
 
 	_clearHTML() {
 		this._parentElement.innerHTML = "";
+	}
+
+	renderError() {
+		document.querySelector(".error").classList.remove("hidden");
+		// const markup = `
+		// <div class="error">
+		// 				<div class="error-icon">
+		// 					<ion-icon name="warning-outline"></ion-icon>
+		// 				</div>
+		// 				<div class="error-text">
+		// 					<p >${message}</p>
+		// 				</div>
+		// 				<button class="exit-btn"><ion-icon class="error-exit "name="close-outline"></ion-icon></button>
+		// 			</div>
+		// `;
+		// this._errParentEl.insertAdjacentHTML("beforeend", markup);
 	}
 }

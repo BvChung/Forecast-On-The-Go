@@ -1,5 +1,6 @@
 import { API_KEY } from "./config.js";
 import { forecastIcon, weatherInfoIcon } from "./config.js";
+import applicationDisplay from "./locationView.js";
 
 // Stores Data from API
 export const state = {
@@ -23,10 +24,12 @@ export const getCoordinates = async function (cityName, unitType = "metric") {
 		const res = await fetch(
 			`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${unitType}&appid=${API_KEY}`
 		);
-		// console.log(res);
+
+		if (!res) return;
 
 		const data = await res.json();
-		// console.log(data);
+
+		if (!data) return;
 
 		let { coord } = data;
 		state.coord = {
@@ -34,6 +37,7 @@ export const getCoordinates = async function (cityName, unitType = "metric") {
 			longitude: coord.lon,
 		};
 	} catch (err) {
+		applicationDisplay.renderError();
 		console.error(err);
 	}
 };
@@ -46,22 +50,33 @@ export const weeklyForecast = async function (lat, lon, unitType = "metric") {
 		const data = await res.json();
 		console.log(data);
 
-		let { current } = data;
 		state.dailyForecast = {
-			currentTemp: Math.round(current.temp),
-			feels_like: Math.round(current.feels_like),
-			humidity: current.humidity,
-			wind_speed: current.wind_speed,
+			timezone: data.timezone,
+			currentTime: data.current.dt,
+			currentTemp: Math.round(data.current.temp),
+			feels_like: Math.round(data.current.feels_like),
+			humidity: data.current.humidity,
+			wind_speed: data.current.wind_speed,
 		};
+		console.log(state.dailyForecast);
+
+		const timeNow = new Date(state.dailyForecast.currentTime * 1000);
+		console.log(timeNow);
+		const convertedTime = timeNow.toLocaleString("en-US", {
+			hour: "numeric",
+			minute: "numeric",
+			timeZone: state.dailyForecast.timezone,
+		});
 
 		state.weatherInfo = data.daily.map((day) => {
 			return {
 				dayTemperature: Math.round(day.temp.day),
 				nightTemperature: Math.round(day.temp.night),
 				chanceOfRain: day.pop.toFixed(2), //in two decimal places
-				weather: day.weather[0].main,
+				weather: day.weather[0].description,
 				weatherIcon: day.weather[0].icon,
 				sunriseUnixTime: day.sunrise,
+				wind: day.wind_speed,
 			};
 		});
 
@@ -80,16 +95,18 @@ export const weeklyForecast = async function (lat, lon, unitType = "metric") {
 			));
 		});
 
+		// Convert icon id from API to current svg icon
 		state.weatherInfo.forEach((el, i) => {
 			if (i === 0) {
 				return (el.infoIcon = weatherInfoIcon(el.weatherIcon));
 			}
 		});
 
-		// Convert icon id from API to svg html respectively
+		// Convert icon id from API to forecast svg icons html respectively
 		state.weatherInfo.forEach((el) => {
 			return (el.forecastIcon = forecastIcon(el.weatherIcon));
 		});
+		console.log(state.dailyForecast);
 		console.log(state.weatherInfo);
 	} catch (err) {
 		console.error(err);
