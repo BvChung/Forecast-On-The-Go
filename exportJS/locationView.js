@@ -14,10 +14,12 @@ class WeatherSearch extends WeatherView {
 			.querySelector(".input-text-search")
 			.value.toLowerCase();
 
+		// Allows async function to run with default city as Austin
+		if (!input) input = "Austin";
+		// console.log(input);
+
 		let output = input[0].toUpperCase() + input.slice(1);
 		let city = output;
-
-		if (!city) city = "Austin";
 
 		this.city = city;
 		this._clear();
@@ -134,7 +136,7 @@ class WeatherSearch extends WeatherView {
 			timeZone: `${this._dataCurrent.timezone}`,
 		});
 
-		console.log(convertedTime);
+		// console.log(convertedTime);
 
 		document.querySelector(".city-time--current").textContent = convertedTime;
 	}

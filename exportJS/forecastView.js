@@ -1,4 +1,3 @@
-import { weeklyForecast } from "./model.js";
 import WeatherView from "./view.js";
 
 class ForecastDisplay extends WeatherView {
@@ -8,15 +7,15 @@ class ForecastDisplay extends WeatherView {
 
 	renderWeekly(dataWeekly, units) {
 		this._forecast = dataWeekly;
-		console.log(this._forecast, units);
+		// console.log(this._forecast, units);
 
 		const markup = this.generateForecastMarkup();
-		// console.log(markup);
 		this._clearHTML();
 		this._parentElement.insertAdjacentHTML("afterbegin", markup);
 	}
 
 	generateForecastMarkup() {
+		// Iterate through the weatherInfo array from model and create one long string of html with data
 		return this._forecast.map(this.generateMarkupPreview).join("");
 	}
 
