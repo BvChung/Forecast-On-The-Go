@@ -14,10 +14,7 @@ class ForecastDisplay extends WeatherView {
 		// console.log(markup);
 		this._clearHTML();
 		this._parentElement.insertAdjacentHTML("afterbegin", markup);
-		// this.insertForecastIcon(this._dataWeekly[0].weatherIcon);
 	}
-
-	forecastIcon() {}
 
 	generateForecastMarkup() {
 		return this._forecast.map(this.generateMarkupPreview).join("");
