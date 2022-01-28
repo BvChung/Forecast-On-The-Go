@@ -2,12 +2,23 @@
 1 rem = 1em = 16px 
 Convert to em: (px /16px) */
 
-@media (max-width: 84em) {
+@media (max-width: 86em) {
 	.container {
-		max-width: 120rem;
+		max-width: 130rem;
 	}
 
 	.weather-forecast-container {
-		gap: 2.4rem;
+		/* display: grid;
+		align-items: center;
+		justify-content: center;
+		grid-template-columns: repeat(7, 1fr); */
+	}
+
+	.week-title {
+		font-size: 2rem;
+	}
+
+	.day--container {
+		width: 90%;
 	}
 }
