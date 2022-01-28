@@ -11,7 +11,7 @@ let units = "metric";
 
 function init() {
 	applicationDisplay.displayDate();
-	getLocation();
+	// getLocation();
 	applicationDisplay.addHandlerSearch(getLocation);
 	changeUnits();
 }
