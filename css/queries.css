@@ -1,0 +1,13 @@
+/* rem and em do not depend on htmml font-size in media queries
+1 rem = 1em = 16px 
+Convert to em: (px /16px) */
+
+@media (max-width: 84em) {
+	.container {
+		max-width: 120rem;
+	}
+
+	.weather-forecast-container {
+		gap: 2.4rem;
+	}
+}
