@@ -10,8 +10,7 @@ const exitError = document.querySelector(".error-exit");
 let units = "metric";
 
 function init() {
-	applicationDisplay.displayDate();
-	// getLocation();
+	getLocation();
 	applicationDisplay.addHandlerSearch(getLocation);
 	changeUnits();
 }

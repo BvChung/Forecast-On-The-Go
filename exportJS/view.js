@@ -11,6 +11,7 @@ export default class WeatherView {
 		this._units = units;
 		// console.log(this._dataCurrent, this._dataWeekly, this._units);
 
+		this.displayDate();
 		this.displayTime();
 		const markup = this.generateMarkup();
 		this._clearHTML();
