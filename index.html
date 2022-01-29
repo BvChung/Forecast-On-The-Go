@@ -19,221 +19,239 @@
 		<link href="css/queries.css" rel="stylesheet">
 	</head>
 	<body>
-		<main class="app container">
-			<div class="weather-content">
-				<div class="weather-search-container">
-					<div class="info-city">
-						<h1 class="city-header header-primary">Austin</h1>
-						<p class="city-time">As of <span class="city-time--current">4:12 pm</span></p>
-						<p class="city-date">Tuesday, 18th Jan 2022</p>
-					</div>
+		<header class="header">
+			<div class='header-name'>
+				<p>Forecast on the Go</p>
+			</div>
 
-					<div class="info-unit">
-						<button class="btn btn--cel btn--active">Display °C</button>
-						<button class="btn btn--faren">Display °F</button>
+			<div class="header-input">
+				<div class="error ">
+					<div class="error-icon">
+						<ion-icon name="warning-outline"></ion-icon>
 					</div>
-
-					<form class="info-input">
-						<input
-							class="input-text-search"
-							type="text"
-							placeholder="Search City"
-						/>
-						<button class="input-btn">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								class="icon icon-tabler icon-tabler-search"
-								width="30"
-								height="30"
-								viewBox="0 0 24 24"
-								stroke-width="2"
-								stroke="#2c3e50"
-								fill="none"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-								<circle cx="10" cy="10" r="7" />
-								<line x1="21" y1="21" x2="15" y2="15" />
-							</svg>
-						</button>
-					</form>
-
-					<div class="error hidden">
-						<div class="error-icon">
-							<ion-icon name="warning-outline"></ion-icon>
-						</div>
-						<div class="error-text">
-							<p >No results found</p>
-						</div>
-						<button class="exit-btn"><ion-icon class="error-exit "name="close-outline"></ion-icon></button>
+					<div class="error-text">
+						<p >No results found</p>
 					</div>
+					<button class="exit-btn"><ion-icon class="error-exit "name="close-outline"></ion-icon></button>
 				</div>
 
-				<div class="weather-info-container">
-					<div class="weather-info--details">
-						<div class="info-title">
-							<h1 class="info-header header-primary">Scattered Clouds</h1>
+				<form class="info-input">
+					<input
+						class="input-text-search"
+						type="text"
+						placeholder="Search City"
+					/>
+					<button class="input-btn">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="icon icon-tabler icon-tabler-search"
+							width="30"
+							height="30"
+							viewBox="0 0 24 24"
+							stroke-width="2"
+							stroke="#2c3e50"
+							fill="none"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<circle cx="10" cy="10" r="7" />
+							<line x1="21" y1="21" x2="15" y2="15" />
+						</svg>
+					</button>
+				</form>
+	
+				
+				 </div>
+				 <div class="info-unit">
+					<button class="btn btn--cel btn--active">Display °C</button>
+					<button class="btn btn--faren">Display °F</button>
+				</div>
 
-							<div class="info-temp">
-								<p>25 °C</p>
-							</div>
-							<div class="info-logo">
-								<ion-icon name="sunny-outline" class="weather-icon-current"></ion-icon>
-							</div>
+			
+		</header>
 
-							
+		<main class="app container">
+			<section class='current-weather'>
+
+				<div class="weather-content">
+					<div class="weather-search-container">
+						<div class="info-city">
+							<h1 class="city-header header-primary">Austin</h1>
+							<p class="city-date">Tuesday, 18th Jan 2022</p>
+							<p class="city-time">As of <span class="city-time--current">4:12 pm</span></p>
 						</div>
-						<div class="info-details">
-							<div class="info-current">
-								<p class="info--title">Feels Like</p>
-								<div class="attribute">
-									<ion-icon
-										name="thermometer-outline"
-										class="info-icon"
-									></ion-icon
-									>
-									<span>
-									25 °C</span>
+					</div>
+					
+	
+					<div class="weather-info-container">
+						<div class="weather-info--details">
+							<div class="info-title">
+								<h1 class="info-header header-primary">Scattered Clouds</h1>
+	
+								<div class="info-temp">
+									<p>25 °C</p>
 								</div>
+								<div class="info-logo">
+									<ion-icon name="sunny-outline" class="weather-icon-current"></ion-icon>
+								</div>
+	
+								
 							</div>
-							<div class="info-current">
-								<p class="info--title">Humidity</span>
+							<div class="info-details">
+								<div class="info-current">
+									<p class="info--title">Feels Like</p>
 									<div class="attribute">
 										<ion-icon
-											name="water-outline"
+											name="thermometer-outline"
 											class="info-icon"
 										></ion-icon
 										>
 										<span>
-											61 %</span>
+										25 °C</span>
 									</div>
-								
-							</div>
-							<div class="info-current">
-								<p class="info--title">Chance of Rain</p>
-								<div class="attribute">
-									<ion-icon
-										name="rainy-outline"
-										class="info-icon"
-									></ion-icon
-									>
-									<span>
-										0 %</span>
 								</div>
-								
-							</div>
-							<div class="info-current">
-								<p class="info--title">Wind Speed</p>
-								<div class="attribute">
-									<ion-icon
-										name="shuffle-outline"
-										class="info-icon"
-									></ion-icon
-									>
-									<span>
-										25 km/h</span>
+								<div class="info-current">
+									<p class="info--title">Humidity</span>
+										<div class="attribute">
+											<ion-icon
+												name="water-outline"
+												class="info-icon"
+											></ion-icon
+											>
+											<span>
+												61 %</span>
+										</div>
+									
 								</div>
-								
+								<div class="info-current">
+									<p class="info--title">Chance of Rain</p>
+									<div class="attribute">
+										<ion-icon
+											name="rainy-outline"
+											class="info-icon"
+										></ion-icon
+										>
+										<span>
+											0 %</span>
+									</div>
+									
+								</div>
+								<div class="info-current">
+									<p class="info--title">Wind Speed</p>
+									<div class="attribute">
+										<ion-icon
+											name="shuffle-outline"
+											class="info-icon"
+										></ion-icon
+										>
+										<span>
+											25 km/h</span>
+									</div>
+									
+								</div>
 							</div>
+	
 						</div>
-
 					</div>
 				</div>
-			</div>
+			</section>
+			
+			<section class="weather-weekly">
 
-			<div class="weather-forecast-container">
-				<div class="day--container" id='color'>
-					<div class="day--title">
-						<p class="week-title">Monday</p>
+				<div class="weather-forecast-container">
+					<div class="day--container" id='color'>
+						<div class="day--title">
+							<p class="week-title">Monday</p>
+						</div>
+	
+						<div class="forecast-icon">
+							<ion-icon name="sunny-outline" class="weather-icon-forecast"></ion-icon>
+						</div>
+						<div class="day--temp">
+							<span class="week-temp-high">23°</span>
+							<span class="week-temp-low">23°</span>
+						</div>
+	
 					</div>
-
-					<div class="forecast-icon">
+	
+					<div class="day--container "  id='color'>
+						<div class="day--title">
+							<p class="week-title">Monday</p>
+						</div>
+	
 						<ion-icon name="sunny-outline" class="weather-icon-forecast"></ion-icon>
+	
+						<div class="day--temp">
+							<span class="week-temp-high">23°</span>
+							<span class="week-temp-low">23°</span>
+						</div>
 					</div>
-
-					<div class="day--temp">
-						<span class="week-temp-high">23°</span>
-						<span class="week-temp-low">23°</span>
+	
+					<div class="day--container" id='color'>
+						<div class="day--title">
+							<p class="week-title">Monday</p>
+						</div>
+	
+						<ion-icon name="sunny-outline" class="weather-icon-forecast"></ion-icon>
+	
+						<div class="day--temp">
+							<span class="week-temp-high">23°</span>
+							<span class="week-temp-low">23°</span>
+						</div>
 					</div>
-				</div>
-
-				<div class="day--container "  id='color'>
-					<div class="day--title">
-						<p class="week-title">Monday</p>
+	
+					<div class="day--container" id='color'>
+						<div class="day--title">
+							<p class="week-title">Monday</p>
+						</div>
+	
+						<ion-icon name="sunny-outline" class="weather-icon-forecast"></ion-icon>
+	
+						<div class="day--temp">
+							<span class="week-temp-high">23°</span>
+							<span class="week-temp-low">23°</span>
+						</div>
 					</div>
-
-					<ion-icon name="sunny-outline" class="weather-icon-forecast"></ion-icon>
-
-					<div class="day--temp">
-						<span class="week-temp-high">23°</span>
-						<span class="week-temp-low">23°</span>
+	
+					<div class="day--container" id='color'>
+						<div class="day--title">
+							<p class="week-title">Monday</p>
+						</div>
+	
+						<ion-icon name="sunny-outline" class="weather-icon-forecast"></ion-icon>
+	
+						<div class="day--temp">
+							<span class="week-temp-high">23°</span>
+							<span class="week-temp-low">23°</span>
+						</div>
 					</div>
-				</div>
-
-				<div class="day--container" id='color'>
-					<div class="day--title">
-						<p class="week-title">Monday</p>
+					<div class="day--container" id='color'>
+						<div class="day--title">
+							<p class="week-title">Monday</p>
+						</div>
+	
+						<ion-icon name="sunny-outline" class="weather-icon-forecast"></ion-icon>
+	
+						<div class="day--temp">
+							<span class="week-temp-high">23°</span>
+							<span class="week-temp-low">23°</span>
+						</div>
 					</div>
-
-					<ion-icon name="sunny-outline" class="weather-icon-forecast"></ion-icon>
-
-					<div class="day--temp">
-						<span class="week-temp-high">23°</span>
-						<span class="week-temp-low">23°</span>
-					</div>
-				</div>
-
-				<div class="day--container" id='color'>
-					<div class="day--title">
-						<p class="week-title">Monday</p>
-					</div>
-
-					<ion-icon name="sunny-outline" class="weather-icon-forecast"></ion-icon>
-
-					<div class="day--temp">
-						<span class="week-temp-high">23°</span>
-						<span class="week-temp-low">23°</span>
-					</div>
-				</div>
-
-				<div class="day--container" id='color'>
-					<div class="day--title">
-						<p class="week-title">Monday</p>
-					</div>
-
-					<ion-icon name="sunny-outline" class="weather-icon-forecast"></ion-icon>
-
-					<div class="day--temp">
-						<span class="week-temp-high">23°</span>
-						<span class="week-temp-low">23°</span>
-					</div>
-				</div>
-				<div class="day--container" id='color'>
-					<div class="day--title">
-						<p class="week-title">Monday</p>
-					</div>
-
-					<ion-icon name="sunny-outline" class="weather-icon-forecast"></ion-icon>
-
-					<div class="day--temp">
-						<span class="week-temp-high">23°</span>
-						<span class="week-temp-low">23°</span>
-					</div>
-				</div>
-				<div class="day--container day--last" id='color'>
-					<div class="day--title">
-						<p class="week-title">Monday</p>
-					</div>
-
-					<ion-icon name="sunny-outline" class="weather-icon-forecast"></ion-icon>
-
-					<div class="day--temp">
-						<span class="week-temp-high">23°</span>
-						<span class="week-temp-low">23°</span>
+					<div class="day--container day--last" id='color'>
+						<div class="day--title">
+							<p class="week-title">Monday</p>
+						</div>
+	
+						<ion-icon name="sunny-outline" class="weather-icon-forecast"></ion-icon>
+	
+						<div class="day--temp">
+							<span class="week-temp-high">23°</span>
+							<span class="week-temp-low">23°</span>
+						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 		</main>
 
 		
