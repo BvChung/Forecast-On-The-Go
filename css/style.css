@@ -157,7 +157,7 @@ body {
 }
 
 .info-temp {
-	color: #1864ab;
+	color: #1971c2;
 }
 
 /* Input ------------------------------------------ */
@@ -306,6 +306,11 @@ body {
 .weather-icon-forecast {
 	font-size: 4.8rem;
 	color: #212529;
+	transition: all 0.3s;
+}
+
+.weather-icon-forecast:hover {
+	color: #339af0;
 }
 
 #color {
