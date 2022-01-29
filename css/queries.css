@@ -14,6 +14,11 @@ Convert to em: (px /16px) */
 	.day--container {
 		width: 90%;
 	}
+
+	.error {
+		top: 14.5%;
+		left: 40.2%;
+	}
 }
 
 @media (max-width: 75em) {
@@ -40,84 +45,81 @@ Convert to em: (px /16px) */
 	.week-temp-low {
 		font-size: 1.6rem;
 	}
+
+	.error {
+		top: 13%;
+		left: 39%;
+	}
 }
 
+/* 976 */
 @media (max-width: 61em) {
 	html {
 		/* 8px / 16px */
 		font-size: 50%;
 	}
 
-	.weather-content {
-		grid-template-columns: 0.7fr 1fr;
+	.weather-forecast-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		/* width: max-content; */
 	}
 
-	.info-details {
-		gap: 2.4rem;
-	}
-}
-
-/* 976 */
-@media (max-width: 61em) {
 	.day--container {
-		width: 75%;
+		width: 70%;
 	}
 
 	.weather-forecast-container {
-		padding: 2.4rem;
-		gap: 2.4rem;
+		/* padding: 2.4rem; */
+		gap: 4.8rem;
 	}
 
 	.week-title {
-		font-size: 1.6rem;
+		font-size: 2.4rem;
+	}
+
+	.week-temp-high {
+		font-size: 3.2rem;
+	}
+	.week-temp-low {
+		font-size: 2.4rem;
 	}
 
 	.info-details {
-		gap: 2rem;
+		font-size: 2rem;
+		gap: 2.4rem;
 	}
 
 	.weather-icon-forecast {
 		font-size: 4rem;
 	}
+
+	.error {
+		top: 12%;
+		left: 37.4%;
+	}
 }
 
 /* 800 */
-/* @media (max-width: 50em) {
-	.header-primary {
-		font-size: 3.2rem;
-	}
-	.day--container {
-		width: 65%;
-	}
-	.week-title {
-		font-size: 1.4rem;
-	}
-	.info-details {
-		gap: 1.2rem;
-		font-size: 1.6rem;
-	}
-
-	.weather-info-container {
-		padding-left: 1.6rem;
-		padding-right: 1.6rem;
-	}
-} */
 
 @media (max-width: 50em) {
+	.header-name {
+		display: none;
+	}
 	.weather-search-container {
 		justify-content: center;
 	}
-	.weather-content {
-		display: flex;
-		justify-content: space-evenly;
-	}
+
 	.weather-info-container {
-		padding: 1.2rem;
+		padding: 3.6rem;
 	}
 	.weather-info--details {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		align-items: center;
+		gap: 1.2rem;
 	}
 
 	.info-details {
@@ -126,12 +128,59 @@ Convert to em: (px /16px) */
 		flex-direction: column;
 	}
 
-	.header-primary {
-		font-size: 2.4rem;
+	.info-title {
+		text-align: center;
 	}
 
-	.weather-forecast-container {
-		display: flex;
+	.header-primary {
+		font-size: 3.2rem;
+		text-align: center;
+	}
+
+	.city-date {
+		text-align: center;
+	}
+
+	.error {
+		top: 4%;
+		left: 37.4%;
+	}
+}
+
+/* 650 */
+@media (max-width: 41em) {
+	.weather-content {
+		grid-template-columns: 1fr;
+	}
+
+	.error {
+		top: 12%;
+		left: 6%;
+	}
+}
+
+/* 544 */
+@media (max-width: 34em) {
+	.header {
 		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 12.4rem;
+		padding: 1.2rem 4.8rem;
+		gap: 1.2rem;
+		margin-bottom: 3.2rem;
+	}
+
+	.info-header {
+		font-size: 2.8rem;
+	}
+
+	.info-temp {
+		font-size: 4.4rem;
+	}
+
+	.error {
+		top: 2%;
+		left: 73%;
 	}
 }
