@@ -1,7 +1,3 @@
-/* rem and em do not depend on htmml font-size in media queries
-1 rem = 1em = 16px 
-Convert to em: (px /16px) */
-
 @media (max-width: 86em) {
 	.container {
 		max-width: 130rem;
