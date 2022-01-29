@@ -1,7 +1,4 @@
-export const API_KEY = `7b5dd67340ea04d52831fd0aa8f18630`;
-
-// const iconEx = forecastIcon("04d");
-// document.querySelector(".forecast-icon").innerHTML = iconEx;
+export const API = `7b5dd67340ea04d52831fd0aa8f18630`;
 
 export const forecastIcon = function (icon) {
 	if (icon === "01d" || icon === "01n") {

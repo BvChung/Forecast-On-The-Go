@@ -1,12 +1,9 @@
-import { API_KEY } from "./config.js";
+import { API } from "./config.js";
 import { forecastIcon, weatherInfoIcon } from "./config.js";
 import applicationDisplay from "./locationView.js";
 
 // Stores Data from API
 export const state = {
-	// Store the coordinates of the city
-	coord: {},
-
 	// Stores information about the current day (humidity/rain/windspeed/feelslike)
 	dailyForecast: [],
 
@@ -17,7 +14,7 @@ export const state = {
 export const getCoordinates = async function (cityName, unitType = "metric") {
 	try {
 		const res = await fetch(
-			`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${unitType}&appid=${API_KEY}`
+			`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${unitType}&appid=${API}`
 		);
 
 		if (!res) return;
@@ -29,11 +26,6 @@ export const getCoordinates = async function (cityName, unitType = "metric") {
 		let { lat, lon } = data.coord;
 
 		return { lat, lon };
-		// let { coord } = data;
-		// state.coord = {
-		// 	latitude: coord.lat,
-		// 	longitude: coord.lon,
-		// };
 	} catch (err) {
 		applicationDisplay.renderError();
 		console.error(err);
@@ -43,7 +35,7 @@ export const getCoordinates = async function (cityName, unitType = "metric") {
 export const weeklyForecast = async function (lat, lon, unitType = "metric") {
 	try {
 		const res = await fetch(
-			`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${unitType}&exclude={part}&appid=${API_KEY}`
+			`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${unitType}&exclude={part}&appid=${API}`
 		);
 		if (!res) return;
 
@@ -69,7 +61,7 @@ export const weeklyForecast = async function (lat, lon, unitType = "metric") {
 				chanceOfRain: day.pop.toFixed(2), //in two decimal places
 				weather: day.weather[0].description,
 				weatherIcon: day.weather[0].icon,
-				sunriseUnixTime: day.sunrise,
+				unixTime: day.dt,
 				wind: day.wind_speed,
 			};
 		});
@@ -77,16 +69,14 @@ export const weeklyForecast = async function (lat, lon, unitType = "metric") {
 		// API gives 8 days want only 7
 		state.weatherInfo.pop();
 
-		// Convert sunriseUnixTime to day of week
+		// Convert unixtime to day of week
 		state.weatherInfo.forEach((el) => {
-			const dayConverted = new Date(el.sunriseUnixTime * 1000);
-			const dateOptions = {
+			const dayConverted = new Date(el.unixTime * 1000);
+			const convertedWeekday = dayConverted.toLocaleString("en-US", {
 				weekday: "long",
-			};
-			const locale = navigator.language;
-			return (el.weekday = new Intl.DateTimeFormat(locale, dateOptions).format(
-				dayConverted
-			));
+				timeZone: `${state.dailyForecast.timezone}`,
+			});
+			return (el.weekday = convertedWeekday);
 		});
 
 		// Convert icon id from API to current svg icon

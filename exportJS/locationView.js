@@ -120,22 +120,7 @@ class WeatherSearch extends WeatherView {
 			timeZone: `${this._dataCurrent.timezone}`,
 		});
 
-		// console.log(convertedTime);
-
 		document.querySelector(".city-date").textContent = convertedTime;
-
-		// const currentDate = new Date();
-		// const dateOptions = {
-		// 	day: "numeric",
-		// 	month: "long",
-		// 	year: "numeric",
-		// 	weekday: "long",
-		// };
-		// const locale = navigator.language;
-		// this._date.textContent = new Intl.DateTimeFormat(
-		// 	locale,
-		// 	dateOptions
-		// ).format(currentDate);
 	}
 
 	displayTime() {
@@ -146,8 +131,6 @@ class WeatherSearch extends WeatherView {
 			minute: "numeric",
 			timeZone: `${this._dataCurrent.timezone}`,
 		});
-
-		// console.log(convertedTime);
 
 		document.querySelector(".city-time--current").textContent = convertedTime;
 	}

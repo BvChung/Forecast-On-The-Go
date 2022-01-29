@@ -5,6 +5,7 @@ export default class WeatherView {
 	_currentIconContainer = document.querySelector(".info-logo");
 	_errEl = document.querySelector(".error");
 
+	// Takes in stored data from api -> renders date, time, html from data
 	render(dataCurrent, dataWeekly, units) {
 		this._dataCurrent = dataCurrent;
 		this._dataWeekly = dataWeekly;
