@@ -13,7 +13,7 @@ What it does
 Why it was built
 ---
 
-ForecastontheGo is my first responsive website built and used to reinforce my fundamentals of web development, practice using an api and provide a site for quick access to the current weather.
+ForecastontheGo was my first responsive website built and used to reinforce my fundamentals of web development, practice using an api and provide a site for quick access to the current weather.
 
 Tech Used: HTML/CSS/Javascript
 
