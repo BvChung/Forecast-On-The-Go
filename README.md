@@ -5,9 +5,10 @@ Website link: https://bvchung.github.io/ForecastontheGo/
 What it does
 ---
 
-* Whenever a user searches a location ForecastontheGo provides up to date information about today's weather conditions and weekly forecast.
-* Users can search for any location globally 
-* Weather data was extracted and rendered using the weather api from [Open Weather](https://openweathermap.org/api).
+* Whenever a user searches a location ForecastontheGo provides up to date information about today's weather conditions and weekly forecast
+* Users can search for any location globally
+* Weather icons are displayed based on the weather of each day to provide a quick summary of what type of weather a user can expect
+* Weather data was extracted and rendered using the weather api from [Open Weather](https://openweathermap.org/api)
 
 
 Why it was built
