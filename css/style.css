@@ -12,8 +12,8 @@ body {
 	font-family: "Rubik", sans-serif;
 	line-height: 1;
 	font-weight: 400;
-	background-color: #e9ecef;
-	height: 100vh;
+	background-color: #fff;
+
 	/* color: #1864ab; */
 }
 
@@ -25,8 +25,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background-color: #74c0fc;
-	margin-bottom: 6.4rem;
+	background-color: #d0ebff;
 
 	height: 9.6rem;
 	padding: 0 4.8rem;
@@ -87,7 +86,7 @@ body {
 	border: none;
 	background-color: #fff;
 	border-radius: 50%;
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 5);
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
 	padding: 0.4rem;
 	transition: all 0.1s;
 }
@@ -104,8 +103,7 @@ body {
 /* Main */
 .app {
 	/* max-width: 120rem; */
-	/* height: 100vh; */
-	margin: auto 0;
+	height: 100vh;
 
 	align-items: center;
 
@@ -115,13 +113,14 @@ body {
 .container {
 	max-width: 150rem;
 	padding: 0 6.4rem;
-	margin: 0 auto;
+	margin: 3.6rem auto;
 }
 
 .weather-content {
 	display: grid;
 	grid-template-columns: auto 1fr;
 	gap: 4.8rem;
+	height: 50%;
 	align-items: center;
 	justify-content: center;
 }
@@ -135,20 +134,16 @@ body {
 
 	align-items: center;
 
-	padding: 3.6rem 2.4rem;
+	padding: 2.4rem 1.2rem;
+	border-right: 3px solid #dee2e6;
+	border-left: 3px solid #dee2e6;
 
 	border-radius: 9px;
-	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 .header-primary {
 	font-size: 4rem;
 	font-weight: 700;
-}
-
-.weather-search-container,
-.weather-info-container {
-	background-color: #e7f5ff;
 }
 
 .header-primary {
@@ -164,28 +159,14 @@ body {
 .info-city {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	/* justify-content: space-between; */
-	gap: 6.4rem;
+	padding: 2.4rem;
+	gap: 2.4rem;
 	font-size: 2rem;
-}
-
-.city-header {
-	border-bottom: 3px solid #1c7ed6;
 }
 
 .city-date,
 .city-time {
 	font-weight: 600;
-	color: #495057;
-}
-
-.city-time {
-	border-bottom: 3px solid #74c0fc;
-}
-
-.city-date {
-	border-bottom: 3px solid #4dabf7;
 	color: #495057;
 }
 
@@ -196,17 +177,24 @@ body {
 
 /* Current Day info ------------------------------------ */
 .weather-info-container {
-	padding: 3.6rem 2.4rem;
+	padding: 2.4rem 1.2rem;
+
 	/* border: 5px solid #212529; */
 	border-radius: 9px;
 	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 
-.info-title {
+.info--weather {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 3.6rem;
+}
+
+.info-title {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 1.2rem;
 	margin-bottom: 3.6rem;
 }
 
@@ -215,11 +203,15 @@ body {
 	font-weight: 700;
 }
 
+.info-header {
+	margin-bottom: 2.4rem;
+}
+
 .info-details {
 	color: #343a40;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-evenly;
 	gap: 3.2rem;
 	font-size: 2rem;
 }
@@ -233,7 +225,8 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: 1.2rem;
+	padding: 0.4rem;
+	gap: 1.4rem;
 }
 
 .weather-icon-current {
@@ -254,7 +247,7 @@ body {
 }
 
 .info-icon {
-	font-size: 3rem;
+	font-size: 2.4rem;
 	color: #1c7ed6;
 }
 
@@ -262,13 +255,14 @@ body {
 
 .weather-forecast-container {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
-	gap: 4.8rem;
+	gap: 3.6rem;
 
 	font-size: 2.4rem;
 	padding: 3.2rem;
-	background-color: #e7f5ff;
+	background-color: #d0ebff;
 
 	border-radius: 9px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -283,11 +277,10 @@ body {
 	height: auto;
 
 	display: flex;
-	flex-direction: column;
+	/* flex-direction: column; */
+	/* flex-wrap: wrap; */
 	align-items: center;
-	justify-content: center;
-
-	gap: 2.4rem;
+	justify-content: space-around;
 
 	margin: 0 auto;
 	padding: 2.4rem 1.2rem;
@@ -295,15 +288,7 @@ body {
 	/* border: 2px solid #212529; */
 	border-radius: 9px;
 	box-shadow: 1.2px 1.2px 4.8px rgba(0, 0, 0, 0.4);
-	transition: all 0.5s;
-}
-
-.day--container:first-child {
-	border: 3px solid #339af0;
-}
-
-.day--container:first-child .week-title {
-	color: #228be6;
+	transition: all 0.3s;
 }
 
 .day--container:hover {
@@ -323,6 +308,9 @@ body {
 
 #color {
 	background-color: #f8f9fa;
+}
+.day--title {
+	width: 15%;
 }
 .week-title {
 	color: #212529;

@@ -8,7 +8,7 @@
 	}
 
 	.day--container {
-		width: 90%;
+		/* width: 90%; */
 	}
 
 	.error {
@@ -28,11 +28,11 @@
 	}
 
 	.weather-forecast-container {
-		gap: 3.2rem;
+		gap: 2.8rem;
 	}
 
 	.day--container {
-		width: 85%;
+		/* width: 85%; */
 	}
 
 	.week-temp-high {
@@ -56,20 +56,21 @@
 	}
 
 	.weather-forecast-container {
-		display: flex;
+		/* display: flex;
 		flex-direction: column;
-		align-items: center;
+		align-items: center; */
 
 		/* width: max-content; */
+		gap: 3rem;
 	}
 
 	.day--container {
-		width: 70%;
+		/* width: 70%; */
 	}
 
 	.weather-forecast-container {
 		/* padding: 2.4rem; */
-		gap: 4.8rem;
+		gap: 2.8rem;
 	}
 
 	.week-title {
@@ -101,6 +102,14 @@
 /* 800 */
 
 @media (max-width: 50em) {
+	.weather-content {
+		grid-template-columns: 1fr;
+	}
+
+	.error {
+		top: 12%;
+		left: 6%;
+	}
 	.header-name {
 		display: none;
 	}
@@ -117,6 +126,16 @@
 		align-items: center;
 		gap: 1.2rem;
 	}
+	.day--container {
+		justify-content: space-between;
+		/* width: max-content; */
+		margin: 0;
+	}
+
+	.week-title {
+		/* width: 50%; */
+		font-size: 1.6rem;
+	}
 
 	.info-details {
 		grid-column: 2/ 3;
@@ -125,12 +144,15 @@
 	}
 
 	.info-title {
-		text-align: center;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 3.6rem;
 	}
 
 	.header-primary {
 		font-size: 3.2rem;
-		text-align: center;
+		/* text-align: center; */
 	}
 
 	.city-date {
@@ -143,28 +165,30 @@
 	}
 }
 
-/* 650 */
-@media (max-width: 41em) {
-	.weather-content {
-		grid-template-columns: 1fr;
-	}
-
-	.error {
-		top: 12%;
-		left: 6%;
-	}
-}
-
 /* 544 */
 @media (max-width: 34em) {
 	.header {
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+		justify-content: space-evenly;
 		height: 12.4rem;
-		padding: 1.2rem 4.8rem;
-		gap: 1.2rem;
+		padding: 0 0.8rem;
+		gap: 0.4rem;
 		margin-bottom: 3.2rem;
+	}
+
+	.weather-forecast-container {
+		padding: 2rem 0.2rem;
+	}
+
+	.city-date,
+	.city-time {
+		font-size: 1.8rem;
+	}
+
+	.week-temp-high {
+		font-size: 2.4rem;
+	}
+	.week-temp-low {
+		font-size: 2rem;
 	}
 
 	.info-header {
@@ -172,7 +196,7 @@
 	}
 
 	.info-temp {
-		font-size: 4.4rem;
+		font-size: 5rem;
 	}
 
 	.error {
