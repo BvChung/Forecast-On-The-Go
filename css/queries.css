@@ -7,10 +7,6 @@
 		font-size: 2rem;
 	}
 
-	.day--container {
-		/* width: 90%; */
-	}
-
 	.error {
 		top: 14.5%;
 		left: 40.2%;
@@ -29,10 +25,6 @@
 
 	.weather-forecast-container {
 		gap: 2.8rem;
-	}
-
-	.day--container {
-		/* width: 85%; */
 	}
 
 	.week-temp-high {
@@ -62,10 +54,6 @@
 
 		/* width: max-content; */
 		gap: 3rem;
-	}
-
-	.day--container {
-		/* width: 70%; */
 	}
 
 	.weather-forecast-container {
