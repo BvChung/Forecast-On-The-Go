@@ -34,19 +34,27 @@ class WeatherSearch extends WeatherView {
 		return `
 		<div class="weather-info--details">
 							<div class="info-title">
-								<h1 class="info-header header-primary">${
-									this._dataWeekly[0].weather[0].toUpperCase() +
-									this._dataWeekly[0].weather.slice(1)
-								}</h1>
-	
-								<div class="info-temp">
-									<p>${this._dataCurrent.currentTemp} ${
+							<div class="info-temp">
+							<p>${this._dataCurrent.currentTemp} ${
 			this._units === "metric" ? "°C" : "°F"
 		}</p>
-								</div>
-								<div class="info-logo">
+						</div>
+								<div class="info--weather">
+									
+									<h1 class="info-header header-primary">${
+										this._dataWeekly[0].weather[0].toUpperCase() +
+										this._dataWeekly[0].weather.slice(1)
+									}</h1>
+									
+									<div class="info-logo">
 									${this._dataWeekly[0].infoIcon}
+									</div>
+									
 								</div>
+								
+	
+								
+								
 	
 								
 							</div>
