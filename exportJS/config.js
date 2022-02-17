@@ -1,5 +1,9 @@
 export const API = `7b5dd67340ea04d52831fd0aa8f18630`;
 
+export const removePreload = function () {
+	document.querySelector(".preload").classList.add("preload-off");
+};
+
 export const forecastIcon = function (icon) {
 	if (icon === "01d" || icon === "01n") {
 		return `<ion-icon class="weather-icon-forecast" name="sunny-outline"></ion-icon>`;

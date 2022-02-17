@@ -2,6 +2,7 @@
 import * as model from "./exportJS/model.js";
 import applicationDisplay from "./exportJS/locationView.js";
 import forecastDisplay from "./exportJS/forecastView.js";
+import { removePreload } from "./exportJS/config.js";
 
 const celcius = document.querySelector(".btn--cel");
 const farenheit = document.querySelector(".btn--faren");
@@ -65,6 +66,8 @@ async function getLocation() {
 
 		// 6. Render weekly forecast with weekday/temp/icons
 		forecastDisplay.renderWeekly(model.state.weatherInfo, units);
+
+		removePreload();
 	} catch (err) {
 		console.error(err);
 	}

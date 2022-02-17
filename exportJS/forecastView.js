@@ -30,8 +30,8 @@ class ForecastDisplay extends WeatherView {
         </div>
 
         <div class="day--temp">
-            <span class="week-temp-high">${result.dayTemperature}°</span>
-            <span class="week-temp-low">${result.nightTemperature}°</span>
+            <p class="week-temp-high">${result.dayTemperature}°</p>
+            <p class="week-temp-low">${result.nightTemperature}°</p>
         </div>
     </div>`;
 	}

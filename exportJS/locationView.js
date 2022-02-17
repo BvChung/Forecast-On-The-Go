@@ -35,7 +35,7 @@ class WeatherSearch extends WeatherView {
 		<div class="weather-info--details">
 							<div class="info-title">
 							<div class="info-temp">
-							<p>${this._dataCurrent.currentTemp} ${
+							<p class="temp">${this._dataCurrent.currentTemp} ${
 			this._units === "metric" ? "°C" : "°F"
 		}</p>
 						</div>
