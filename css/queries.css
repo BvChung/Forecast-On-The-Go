@@ -19,19 +19,15 @@
 		font-size: 56.25%;
 	}
 
-	.weather-content {
-		grid-template-columns: 0.6fr 1fr;
-	}
-
 	.weather-forecast-container {
 		gap: 2.8rem;
 	}
 
 	.week-temp-high {
-		font-size: 2.4rem;
+		font-size: 3rem;
 	}
 	.week-temp-low {
-		font-size: 1.6rem;
+		font-size: 2rem;
 	}
 
 	.error {
@@ -48,16 +44,10 @@
 	}
 
 	.weather-forecast-container {
-		/* display: flex;
-		flex-direction: column;
-		align-items: center; */
-
-		/* width: max-content; */
 		gap: 3rem;
 	}
 
 	.weather-forecast-container {
-		/* padding: 2.4rem; */
 		gap: 2.8rem;
 	}
 
@@ -66,10 +56,10 @@
 	}
 
 	.week-temp-high {
-		font-size: 3.2rem;
+		font-size: 3rem;
 	}
 	.week-temp-low {
-		font-size: 2.4rem;
+		font-size: 2.8rem;
 	}
 
 	.info-details {
@@ -78,7 +68,7 @@
 	}
 
 	.weather-icon-forecast {
-		font-size: 4rem;
+		font-size: 3.6rem;
 	}
 
 	.error {
@@ -134,8 +124,9 @@
 	.info-title {
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;
-		gap: 3.6rem;
+		justify-content: space-between;
+		gap: 4.8rem;
+		margin-bottom: 0;
 	}
 
 	.header-primary {
@@ -155,12 +146,19 @@
 
 /* 544 */
 @media (max-width: 34em) {
+	.container {
+		padding: 0 1.6rem;
+	}
 	.header {
 		justify-content: space-evenly;
 		height: 12.4rem;
 		padding: 0 0.8rem;
 		gap: 0.4rem;
 		margin-bottom: 3.2rem;
+	}
+
+	.weather-content {
+		gap: 2rem;
 	}
 
 	.weather-forecast-container {
@@ -172,23 +170,48 @@
 		font-size: 1.8rem;
 	}
 
-	.week-temp-high {
-		font-size: 2.4rem;
-	}
-	.week-temp-low {
-		font-size: 2rem;
-	}
-
 	.info-header {
-		font-size: 2.8rem;
+		font-size: 2.6rem;
 	}
 
-	.info-temp {
-		font-size: 5rem;
+	.temp {
+		font-size: 4.8rem;
 	}
 
 	.error {
 		top: 2%;
 		left: 73%;
+	}
+
+	.day--title {
+		width: 5rem;
+	}
+
+	.day--container {
+		justify-content: space-between;
+		width: fit-content;
+	}
+
+	.week-temp-high {
+		font-size: 2.4rem;
+	}
+
+	.week-temp-low {
+		font-size: 1.8rem;
+	}
+
+	.weather-icon-forecast {
+		font-size: 2.4rem;
+	}
+}
+
+@media (max-width: 24em) {
+	.city-date,
+	.city-time {
+		font-size: 1.6rem;
+	}
+
+	.day--container {
+		width: 100%;
 	}
 }

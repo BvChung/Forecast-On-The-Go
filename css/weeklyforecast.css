@@ -1,0 +1,86 @@
+/* 7 day forecast ------------------------------------- */
+
+.weather-forecast-container {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 3.6rem;
+
+	font-size: 2.8rem;
+	padding: 3.2rem;
+	background-color: #d0ebff;
+
+	border-radius: 9px;
+	/* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
+}
+
+.weather-info--current {
+	align-items: center;
+}
+
+.day--container {
+	width: 85%;
+	height: auto;
+
+	display: flex;
+
+	align-items: center;
+	justify-content: space-around;
+
+	margin: 0 auto;
+	padding: 2.4rem 1.2rem;
+
+	border-radius: 9px;
+	box-shadow: 1.2px 1.2px 4.8px rgba(0, 0, 0, 0.4);
+	transition: all 0.3s;
+}
+
+.day--container:hover {
+	transform: translateY(-1.2rem);
+	box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+}
+
+.weather-icon-forecast {
+	font-size: 4.2rem;
+	color: #212529;
+
+	transition: all 0.3s;
+}
+
+.weather-icon-forecast:hover {
+	color: #339af0;
+}
+
+#color {
+	background-color: #f8f9fa;
+}
+.day--title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 15rem;
+}
+
+.week-title {
+	color: #212529;
+	font-weight: 700;
+}
+
+.day--temp {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 500;
+	gap: 0.8rem;
+	width: 10rem;
+}
+
+.week-temp-high {
+	color: #1864ab;
+	/* font-size: 3rem; */
+}
+.week-temp-low {
+	color: #339af0;
+	/* font-size: 2rem; */
+}
