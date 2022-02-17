@@ -37,8 +37,8 @@
 }
 
 .day--container:hover {
-	transform: translateY(-1.2rem);
-	box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+	transform: scale(1.05);
+	box-shadow: 0 2rem 6.4rem rgba(0, 0, 0, 0.06);
 }
 
 .weather-icon-forecast {
@@ -55,6 +55,7 @@
 #color {
 	background-color: #f8f9fa;
 }
+
 .day--title {
 	display: flex;
 	align-items: center;
@@ -65,6 +66,10 @@
 .week-title {
 	color: #212529;
 	font-weight: 700;
+}
+
+.day--container:first-child .week-title {
+	color: #1864ab;
 }
 
 .day--temp {

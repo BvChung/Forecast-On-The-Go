@@ -1,8 +1,6 @@
 /* Current Day info ------------------------------------ */
 .weather-info-container {
 	padding: 2.4rem 1.2rem;
-
-	/* border: 5px solid #212529; */
 	border-radius: 9px;
 	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }

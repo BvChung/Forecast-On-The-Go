@@ -12,9 +12,7 @@ body {
 	font-family: "Rubik", sans-serif;
 	line-height: 1;
 	font-weight: 400;
-	background-color: #fff;
-
-	/* color: #1864ab; */
+	background-color: #f8f9fa;
 }
 
 .current-weather {
