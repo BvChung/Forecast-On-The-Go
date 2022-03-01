@@ -1,6 +1,6 @@
 # ForecastontheGo
 
-## Website link: https://bvchung.github.io/ForecastontheGo/
+## Website link: https://bvchung.github.io/Forecast-On-The-Go/
 
 ## What it does
 
